@@ -20,10 +20,10 @@ function App() {
   });
 
   function handleInput(e) {
-    const { autore, contenuto } = e.target;
+    const { name, value } = e.target;
     setAddNewPost({
-      autore: e.target.value,
-      contenuto: e.target.value,
+      ...addNewPost,
+      [name]: value,
     });
   }
 
@@ -47,12 +47,14 @@ function App() {
             <div className="my-4">
               <input
                 type="text"
+                name="autore"
                 placeholder="Inserisci il nome"
                 onChange={handleInput}
                 value={posts.autore}
               />
               <input
                 type="text"
+                name="contenuto"
                 className="ms-2"
                 placeholder="Inserisci il contenuto"
                 onChange={handleInput}
