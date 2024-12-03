@@ -20,8 +20,15 @@ function App() {
         <h1 className="mt-5">BoolBlog</h1>
         <div className="wrapper mt-5">
           <form>
-            <input type="text" />
-            <button className="ms-2">Invia</button>
+            <div className="my-4">
+              <input type="text" placeholder="Inserisci il nome" />
+              <input
+                type="text"
+                className="ms-2"
+                placeholder="Inserisci il contenuto"
+              />
+              <button className="ms-2">Invia</button>
+            </div>
           </form>
           <ul>
             {posts.map((post) => (
