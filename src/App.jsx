@@ -42,12 +42,14 @@ function App() {
                 type="text"
                 placeholder="Inserisci il nome"
                 onChange={handleInput}
+                value={posts.autore}
               />
               <input
                 type="text"
                 className="ms-2"
                 placeholder="Inserisci il contenuto"
                 onChange={handleInput}
+                value={posts.contenuto}
               />
               <button className="ms-2">Invia</button>
             </div>
