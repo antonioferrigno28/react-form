@@ -23,12 +23,14 @@ function App() {
             <input type="text" />
             <button className="ms-2">Invia</button>
           </form>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <b>{post.autore}: </b>
-              {post.contenuto}
-            </li>
-          ))}
+          <ul>
+            {posts.map((post) => (
+              <li key={post.id}>
+                <b>{post.autore}: </b>
+                {post.contenuto}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>
