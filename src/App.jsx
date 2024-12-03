@@ -55,8 +55,8 @@ function App() {
             </div>
           </form>
           <ul>
-            {posts.map((post) => (
-              <li key={post.id} className="my-2">
+            {posts.map((post, i) => (
+              <li key={i} className="my-2">
                 <b>{post.autore}: </b>
                 {post.contenuto}
                 <button className="ms-2">Modifica titolo</button>
