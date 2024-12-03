@@ -14,10 +14,17 @@ import posts from "./data/posts";
 // Buon lavoro!
 
 function App() {
-  const [addNewPost, setAddNewPost] = useState(posts);
+  const [addNewPost, setAddNewPost] = useState({
+    autore: "",
+    contenuto: "",
+  });
 
   function handleInput(e) {
-    setAddNewPost(e.target.value);
+    const { autore, contenuto } = e.target;
+    setAddNewPost({
+      autore: e.target.value,
+      contenuto: e.target.value,
+    });
   }
 
   function handleSubmit(e) {
