@@ -1,6 +1,3 @@
-import { useState } from "react";
-import postsData from "./data/posts";
-
 // Esercizio
 // Creare un semplice form con un campo input per il titolo di un articolo del blog.
 
@@ -12,6 +9,9 @@ import postsData from "./data/posts";
 // Implementare la funzionalità di modifica del titolo di un post.
 // Aggiungere più campi al form (ad es. lo stato di un articolo - draft, published - o l’autore)
 // Buon lavoro!
+
+import { useState } from "react";
+import postsData from "./data/posts";
 
 function App() {
   const [newPost, setNewPost] = useState({
@@ -55,6 +55,11 @@ function App() {
     setNewPost({ autore: "", contenuto: "" });
   }
 
+  function handleDelete(i) {
+    const updatedPosts = posts.filter((post, index) => i !== index);
+    setPosts(updatedPosts);
+  }
+
   return (
     <>
       <div className="container">
@@ -86,7 +91,9 @@ function App() {
                 <b>{post.autore}: </b>
                 {post.contenuto}
                 <button className="ms-2">Modifica titolo</button>
-                <button className="ms-2">Cancella</button>
+                <button className="ms-2" onClick={() => handleDelete(i)}>
+                  Cancella
+                </button>
               </li>
             ))}
           </ul>
