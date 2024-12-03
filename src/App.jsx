@@ -1,5 +1,5 @@
 import { useState } from "react";
-import posts from "./data/posts";
+import postsData from "./data/posts";
 
 // Esercizio
 // Creare un semplice form con un campo input per il titolo di un articolo del blog.
@@ -18,6 +18,8 @@ function App() {
     autore: "",
     contenuto: "",
   });
+
+  const [posts, setPosts] = useState(postsData);
 
   function handleInput(e) {
     const { name, value } = e.target;
@@ -49,8 +51,8 @@ function App() {
       return;
     }
 
-    posts.push(newPost);
-    console.log(posts);
+    setPosts([...posts, newPost]);
+    setNewPost({ autore: "", contenuto: "" });
   }
 
   return (
@@ -65,7 +67,7 @@ function App() {
                 name="autore"
                 placeholder="Inserisci il nome"
                 onChange={handleInput}
-                value={posts.autore}
+                value={newPost.autore}
               />
               <input
                 type="text"
@@ -73,7 +75,7 @@ function App() {
                 className="ms-2"
                 placeholder="Inserisci il contenuto"
                 onChange={handleInput}
-                value={posts.contenuto}
+                value={newPost.contenuto}
               />
               <button className="ms-2">Invia</button>
             </div>
