@@ -14,28 +14,43 @@ import posts from "./data/posts";
 // Buon lavoro!
 
 function App() {
-  const [addNewPost, setAddNewPost] = useState({
+  const [newPost, setNewPost] = useState({
     autore: "",
     contenuto: "",
   });
 
   function handleInput(e) {
     const { name, value } = e.target;
-    setAddNewPost({
-      ...addNewPost,
-      [name]: value,
+    let currentAuthor = newPost.autore;
+    let currentContent = newPost.contenuto;
+    //modifichiamo autore o content?
+    if (name === "autore") {
+      currentAuthor = value;
+      console.log("modifying author with value " + " " + value);
+    } else if (name === "contenuto") {
+      currentContent = value;
+    }
+
+    //aggiorno valore
+
+    setNewPost({
+      autore: currentAuthor,
+      contenuto: currentContent,
     });
+    console.log("ao" + " " + value + " " + name);
+    console.log(newPost.autore, newPost.contenuto);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (!addNewPost) {
+    if (!newPost.autore || !newPost.contenuto) {
       alert("Hai lasciato un campo vuoto");
       return;
     }
 
-    setAddNewPost([...posts, addNewPost]);
+    posts.push(newPost);
+    console.log(posts);
   }
 
   return (
